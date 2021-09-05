@@ -43,7 +43,7 @@ So, inlining critical CSS should not further affect our CSP.
 After inlining critical CSS, the rest can be postponed.
 However, HTML and CSS don't support asynchronous loading for CSS files.
 
-To circumvent this issue, there is an Angular trick to load non-critical CSS asynchronously using ``media`` technic:
+To circumvent this issue, there is an Angular trick to load non-critical CSS asynchronously using ``media`` attribute:
 
 ```html
 <link rel="stylesheet"
@@ -52,7 +52,7 @@ To circumvent this issue, there is an Angular trick to load non-critical CSS asy
   onload="this.media='all'">
 ```
 
-Media type (``print``) doesn’t match the current environment, so the browser decides it’s not that important and loads the stylesheet asynchronously, without delaying the page rendering. On load, we change media type so that the stylesheet gets applied to screens.
+Media type (``print``) doesn’t match the current environment, so the browser decides that it is less important and loads the stylesheet asynchronously, without delaying the page rendering. On load, we change media type so that the stylesheet gets applied to screens.
 
 In order to authorize event handlers that run inline script, we have to include the following content in our CSP:
 
