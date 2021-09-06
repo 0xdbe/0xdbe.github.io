@@ -2,7 +2,7 @@
 layout: post
 title: Angular Security - Disable Inline Critical CSS
 categories: [Angular]
-tags: Angular, test
+tags: Angular
 canonical_url: https://0xdbe.github.io/AngularSecurity-DisableInlineCriticalCSS/
 ---
 
