@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Angular Security - Disable Inline Critical CSS
+date: 20210905
+published: true
 categories: [Angular]
-tags: Angular
 canonical_url: https://0xdbe.github.io/AngularSecurity-DisableInlineCriticalCSS/
 ---
 
@@ -25,25 +26,17 @@ To understand why it is necessary, let's take a look at these practices.
 
 ### Inlining critical CSS
 
-During the build process, Angular extracts first all CSS resources that block the rendering.
-Once critical CSS are extracted, Angular inlines them directly in the ``index.html`` file.
-
-In order to authorize inline CSS, we have to add the following content in our CSP:
+During the build process, Angular extracts first all CSS resources that block the rendering. Once critical CSS are extracted, Angular inlines them directly in the ``index.html`` file. In order to authorize inline CSS, we have to add the following content in our CSP:
 
 ```
 style-src-elem 'unsafe-inline';
 ```
 
-With this configuration, our CSP is not able to block [CSS injections](https://www.netsparker.com/blog/web-security/private-data-stolen-exploiting-css-injection/) anymore.
-This problem is not new since inline CSS is used by Angular for Component Style.
-So, inlining critical CSS should not further affect our CSP.
+With this configuration, our CSP is not able to block [CSS injections](https://www.netsparker.com/blog/web-security/private-data-stolen-exploiting-css-injection/) anymore. This problem is not new since inline CSS is used by Angular for Component Style. So, inlining critical CSS should not further affect our CSP.
 
 ### Delaying non-critical CSS
 
-After inlining critical CSS, the rest can be postponed.
-However, HTML and CSS don't support asynchronous loading for CSS files.
-
-To circumvent this issue, there is an Angular trick to load non-critical CSS asynchronously using ``media`` attribute:
+After inlining critical CSS, the rest can be postponed. However, HTML and CSS don't support asynchronous loading for CSS files. To circumvent this issue, there is an Angular trick to load non-critical CSS asynchronously using ``media`` attribute:
 
 ```html
 <link rel="stylesheet"
@@ -52,9 +45,7 @@ To circumvent this issue, there is an Angular trick to load non-critical CSS asy
   onload="this.media='all'">
 ```
 
-Media type (``print``) doesn’t match the current environment, so the browser decides that it is less important and loads the stylesheet asynchronously, without delaying the page rendering. On load, we change media type so that the stylesheet gets applied to screens.
-
-In order to authorize event handlers that run inline script, we have to include the following content in our CSP:
+Media type (``print``) doesn’t match the current environment, so the browser decides that it is less important and loads the stylesheet asynchronously, without delaying the page rendering. On load, we change media type so that the stylesheet gets applied to screens. In order to authorize event handlers that run inline script, we have to include the following content in our CSP:
 
 ```
 script-src 'unsafe-inline';
@@ -67,8 +58,7 @@ This configuration almost defeats the purpose of CSP, thus we could be exposed t
 
 For security purposes, inline critical CSS must be disabled to keep a strict CSP.
 
-Inline critical CSS is a new optimization introduced in Angular 11.1. However it was disabled by default.
-This optimization is now enabled by default in v12 and you have to set ``inlineCritical`` to ``false`` in ``angular.json`` for each configuration:
+Inline critical CSS is a new optimization introduced in Angular 11.1. However it was disabled by default. This optimization is now enabled by default in v12 and you have to set ``inlineCritical`` to ``false`` in ``angular.json`` for each configuration:
 
 ```json
 {
