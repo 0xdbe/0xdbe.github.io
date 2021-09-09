@@ -4,6 +4,7 @@ title: Angular Security - Disable Inline Critical CSS
 date: 20210905
 published: true
 categories: [Angular]
+tags: Security, AppSec, Angular
 canonical_url: https://0xdbe.github.io/AngularSecurity-DisableInlineCriticalCSS/
 ---
 
