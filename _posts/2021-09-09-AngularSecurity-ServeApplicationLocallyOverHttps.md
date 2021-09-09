@@ -23,7 +23,7 @@ This tool is written by Filippo Valsorda, Cryptographer and Go security leader. 
 
 Run this command to create a new local certificate authority (CA):
 
-```
+```console
 mkcert -install
 ```
 
@@ -39,7 +39,7 @@ Be aware that the ``rootCA-key.pem`` file that ``mkcert`` automatically generate
 
 Run the following commands from Angular project directory:
 
-```
+```console
 mkdir tls
 mkcert \
       -cert-file ./tls/localhost-cert.pem \
@@ -50,10 +50,12 @@ mkcert \
 
 This certificate will expire in 3 months. In order to make renewal easier, we can create a shortcut for this command in ``package.json``:
 
-```
-"scripts": {
-  "start": "npm run cert & ng serve",
-  "cert": "mkdir -p ./tls & mkcert -cert-file ./tls/localhost-cert.pem -key-file ./tls/localhost-key.pem -ecdsa localhost 127.0.0.1 ::1"
+```json
+{
+  "scripts": {
+    "start": "npm run cert & ng serve",
+    "cert": "mkdir -p ./tls & mkcert -cert-file ./tls/localhost-cert.pem -key-file ./tls/localhost-key.pem -ecdsa localhost 127.0.0.1 ::1"
+  }
 }
 ```
 
@@ -67,7 +69,7 @@ Don't forget to add ``tls/*``in ``.gitignore`` to prevent publication of your pr
 
 In order to serve Angular application securely, add ``ssl``, ``sslCert`` and ``sslKey`` options to ``serve`` command:
 
-```
+```console
 ng serve \
       --ssl=true \
       --sslCert=./tls/localhost-cert.pem \
@@ -76,14 +78,16 @@ ng serve \
 
 To avoid to write these options each time that we want to run this app over HTTPS, we can set them in the ``angular.json`` file:
 
-```
-"serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "ssl": true,
-            "sslCert": "tls/localhost-cert.pem",
-            "sslKey": "tls/localhost-key.pem"
-          }
+```json
+{
+  "serve": {
+    "builder": "@angular-devkit/build-angular:dev-server",
+    "options": {
+      "ssl": true,
+      "sslCert": "tls/localhost-cert.pem",
+      "sslKey": "tls/localhost-key.pem"
+    }
+  }
 }
 ```
 
