@@ -5,7 +5,7 @@ date: 20210909
 published: true
 categories: [Angular]
 tags: Security, AppSec, Angular
-canonical_url:
+canonical_url: https://0xdbe.github.io/AngularSecurity-ServeApplicationLocallyOverHttps/
 ---
 
 When you develop an Angular application, you will come to a point where you need to serve it on localhost over HTTPS. This is often the case if you need to interact with an identity provider such as Facebook, OAuth0, ... And by the way, testing locally with HTTPS could be useful to detect mixed content issues that can break a production HTTPS website.
@@ -23,7 +23,7 @@ This tool is written by Filippo Valsorda, Cryptographer and Go security leader. 
 
 Run this command to create a new local certificate authority (CA):
 
-```console
+```shell
 mkcert -install
 ```
 
@@ -39,7 +39,7 @@ Be aware that the ``rootCA-key.pem`` file that ``mkcert`` automatically generate
 
 Run the following commands from Angular project directory:
 
-```console
+```shell
 mkdir tls
 mkcert \
       -cert-file ./tls/localhost-cert.pem \
@@ -69,7 +69,7 @@ Don't forget to add ``tls/*``in ``.gitignore`` to prevent publication of your pr
 
 In order to serve Angular application securely, add ``ssl``, ``sslCert`` and ``sslKey`` options to ``serve`` command:
 
-```console
+```shell
 ng serve \
       --ssl=true \
       --sslCert=./tls/localhost-cert.pem \

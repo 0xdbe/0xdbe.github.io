@@ -11,4 +11,5 @@ package.json
 *.gemspec
 .jekyll-cache
 .env
+_posts_wip
 script/**
