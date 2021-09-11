@@ -1,14 +1,15 @@
 ---
 layout: post
 title: Angular Security - Serve application locally over HTTPS
-date: 20210909
+date: '2021-09-09'
+description: This article will walk you through setting Angular to use locally-trusted development certificate with mkcert.
 published: true
 categories: [Angular]
 tags: Security, AppSec, Angular
 canonical_url: https://0xdbe.github.io/AngularSecurity-ServeApplicationLocallyOverHttps/
 ---
 
-When you develop an Angular application, you will come to a point where you need to serve it on localhost over HTTPS. This is often the case if you need to interact with an identity provider such as Facebook, OAuth0, ... And by the way, testing locally with HTTPS could be useful to detect mixed content issues that can break a production HTTPS website.
+When you develop an Angular application, you will come to a point where you need to serve it on localhost over HTTPS. This is often the case if you need to interact with an identity provider such as Facebook, Auth0, ... And by the way, testing locally with HTTPS could be useful to detect mixed content issues that can break a production HTTPS website.
 
 This article will walk you through setting Angular to use locally-trusted development certificate with ``mkcert``. This is an easy way to expose an application over HTTPS without security warnings and you don't worry too much about OpenSSL.
  
