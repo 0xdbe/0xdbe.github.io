@@ -27,7 +27,7 @@ To understand why it is necessary, let's take a look at these practices.
 
 ### Inlining critical CSS
 
-During the build process, Angular extracts first all CSS resources that block the rendering. Once critical CSS are extracted, Angular inlines them directly in the ``index.html`` file. In order to authorize inline CSS, we have to add the following content in our CSP:
+During the build process, Angular first extracts all CSS resources that block the rendering. Once critical CSS are extracted, Angular inlines them directly in the ``index.html`` file. In order to authorize inline CSS, we have to add the following content in our CSP:
 
 ```
 style-src-elem 'unsafe-inline';
@@ -46,7 +46,7 @@ After inlining critical CSS, the rest can be postponed. However, HTML and CSS do
   onload="this.media='all'">
 ```
 
-Media type (``print``) doesn’t match the current environment, so the browser decides that it is less important and loads the stylesheet asynchronously, without delaying the page rendering. On load, we change media type so that the stylesheet gets applied to screens. In order to authorize event handlers that run inline script, we have to include the following content in our CSP:
+Media type (``print``) doesn’t match the current environment, so the browser decides that it is less important and loads the stylesheet asynchronously, without delaying the page rendering. On load, we change the media type so that the stylesheet gets applied to screens. In order to authorize event handlers that run inline script, we have to include the following content in our CSP:
 
 ```
 script-src 'unsafe-inline';
