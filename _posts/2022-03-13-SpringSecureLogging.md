@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Spring Boot: Prevent Log Injection Attacks With Logback
+title: "Spring Boot: Prevent Log Injection Attacks With Logback"
 date: 20220313
 published: true
 categories: [Spring]
