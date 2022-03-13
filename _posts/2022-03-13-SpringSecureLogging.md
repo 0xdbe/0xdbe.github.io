@@ -10,7 +10,6 @@ canonical_url: https://0xdbe.github.io/SpringSecureLogging/
 
 Log Injection is an attack that has been known to everyone for years.
 Despite the fact that any application can record logs from user input, for too long many of us had forgotten about the dangers.
-
 But the recently discovered vulnerabilities concerning log4j2 have reminded us of the importance of preventing log injection attacks.
 This article describes one concrete way - albeit not the only way - to prevent log injection attacks in a Spring Boot application using Logback.
 
