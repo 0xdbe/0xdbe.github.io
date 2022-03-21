@@ -142,7 +142,7 @@ However, there are consequences to consider.
 Since each log entry is wrapped up in a JSON object, it becomes difficult to use logs with simple tools like ``cat``, ``tail`` or ``grep``.
 So, a log management system, such as ELK (Elasticsearch, Logstash and Kibana), is mandatory.
 
-However, it is still possible to have several configurations using Spring Profile:
+However, it is still possible to have several configurations using Spring Profile in ``logback-spring.xml``:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
