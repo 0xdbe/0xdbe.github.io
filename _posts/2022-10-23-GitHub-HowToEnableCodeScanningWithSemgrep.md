@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GitHub: How To Enable Code Scanning With Semgrep"
-date: 20222310
+date: 2022-10-23
 published: true
 categories: [Semgrep]
 tags: Security, AppSec, SAST
