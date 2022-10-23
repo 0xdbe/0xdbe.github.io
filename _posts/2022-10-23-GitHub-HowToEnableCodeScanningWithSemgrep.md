@@ -70,7 +70,7 @@ jobs:
 Then, you can manually trigger this workflow to run a first full scan.
 All findings are published in the ``Code Scanning alerts`` in the ``Security`` tab of your GitHub repository.
 
-![Code Scanning Alerts](/0xdbe.github.io/assets/CodeScanningAlerts.png)
+![Code Scanning Alerts](/images/CodeScanningAlerts.png)
 
 This workflow is also scheduled to run a full scan every Saturday at 1:00 AM.
 And the result is sync with the ``Code Scanning Alerts`` dashboard.
@@ -135,7 +135,7 @@ Now, you can protect your default branch ``main`` in your repository ``settings`
 By the way, you can also check ``Do not allow bypassing the above settings`` to prevent Semgrep bypass.
 After that, it will not be possible to merge Pull Request with new findings:
 
-![Pull Request Failed](/0xdbe.github.io/assets/PullRequestFailed.png)
+![Pull Request Failed](/images/PullRequestFailed.png)
 
 
 ## Wrap-Up
