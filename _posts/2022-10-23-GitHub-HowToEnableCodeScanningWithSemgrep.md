@@ -12,11 +12,11 @@ Semgrep is an incredible static analysis engine that can be used for finding bug
 Semgrep is a Swiss army knife for static code analysis.
 
 This article describes how to automate the discovery of coding vulnerabilities with Semgrep and GitHub Workflows.
-For this we will need 2 workflows: full scan and differential scan.
+For this, we will need 2 workflows: full scan and differential scan.
 
 ## Full scan
 
-The first workflow is dedicated to scan all codebase of your application and provides a global analysis of the existing.
+The first workflow is dedicated to scan all the codebase of your application and provides a global analysis of the existing.
 
 To create this workflow, paste the following content in ``.github/workflows/semgrep-full.yaml``:
 
@@ -68,7 +68,7 @@ jobs:
 ```
 
 Then, you can manually trigger this workflow to run a first full scan.
-All findings are published in the ``Code Scanning alerts`` in the ``Security`` tab of your GitHub repository.
+All findings will be published in the ``Code Scanning alerts`` in the ``Security`` tab of your GitHub repository.
 
 ![Code Scanning Alerts](/images/CodeScanningAlerts.png)
 
@@ -77,23 +77,24 @@ And the result is sync with the ``Code Scanning Alerts`` dashboard.
 New findings are published and fixed findings are automatically closed.
 Pretty cool feature!
 
-> ``Code Scanning alerts`` is free for public repository but organizations must subscribe to ``GitHub Advanced Security``, a very expensive add-ons.
-> If you don't have this option, you can use another security dashboard like Defect Dojo.
+> ``Code Scanning alerts`` is free for public repositories but organisations must subscribe to ``GitHub Advanced Security`` which is a very expensive add-on.
+> If you don't have this option, and you don’t want to subscribe, you can use another security dashboard like Defect Dojo.
 
-The first workflow is now operational and you have probably a lot of findings in your ``Code Scanning Alerts`` dashboard.
+... and it’s that simple. The first workflow is now operational! 
 
-We know that it will not be possible to fix all findings immediately.
-Fixing it probably needs several weeks of work.
+Now, you’ll probably discover that you have a lot of findings in your ``Code Scanning Alerts`` dashboard.
+We know that it will not be possible to fix all of them immediately.
+Fixing those will probably need several weeks of work.
 That is why this workflow can't block the software pipeline.
 However, thanks to this workflow, you can follow your progress because, each week, fixed alerts are automatically closed.
 
-In waiting, you can block all *Pull Requests* which could add new findings.
-For that, we can write a second workflow to run a differential scan in order to report only findings in a Pull Request.
+While waiting for these corrections, you can block all *Pull Requests* which could add new findings.
+For that, we can write a second workflow to run a differential scan in order to report only findings in the Pull Requests.
 
 
 ## Differential scan
 
-The second workflow is dedicated to analyze Pull Requests.
+The second workflow is dedicated to analyse Pull Requests.
 
 To create this workflow, paste the following content in ``.github/workflows/semgrep-diff.yaml``:
 
@@ -128,12 +129,12 @@ jobs:
             --config="p/default"
 ```
 
-Under the hood, Semgrep performs two scans: one on the Pull Request and one another on the existing codebase before Pull Request.
-Then, only new findings are reported.
+Under the hood, Semgrep performs two scans: one on the Pull Request and another on the existing codebase before the Pull Request.
+Therefore, only new findings are reported.
 
 Now, you can protect your default branch ``main`` in your repository ``settings``, by adding ``semgrep-diff`` in ``Require status checks to pass before merging``.
 By the way, you can also check ``Do not allow bypassing the above settings`` to prevent Semgrep bypass.
-After that, it will not be possible to merge Pull Request with new findings:
+After that, it will not be possible to merge thes Pull Requests with new findings:
 
 ![Pull Request Failed](/images/PullRequestFailed.png)
 
@@ -142,13 +143,11 @@ After that, it will not be possible to merge Pull Request with new findings:
 
 Congratulations! You have setup Semgrep on your GitHub repository with two workflows:
 
-- A workflow to perform a full scan on the existing code base
+- A workflow to perform a full scan on the existing codebase
 - A workflow to perform a differential scan on Pull Request
 
-This way to use Semgrep with GitHub provides more flexibility.
-As you can see, you can enable code scanning without having to fix all findings on your existing codebase.
+Using Semgrep with GitHub this way provides more flexibility.
+As you can see, you can enable code scanning without having to fix all of the findings on your existing codebase.
 
-Take the time to assess the risks of each finding in order to prioritize them.
-In the meantime, you are sure that there will be no additional findings in your repository.
-And you can even change the rules without freezing developments.
-
+Take the time to assess the risks of each finding in order to prioritise them.
+In the meantime, you will be sure that there will be no additional findings in your repository, and you can even change the rules without freezing any developments.
