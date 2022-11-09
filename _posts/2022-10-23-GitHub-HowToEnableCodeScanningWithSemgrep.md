@@ -75,7 +75,7 @@ All findings will be published in the ``Code Scanning alerts`` in the ``Security
 This workflow is also scheduled to run a full scan every Saturday at 1:00 AM.
 And the result is sync with the ``Code Scanning Alerts`` dashboard.
 New findings are published and fixed findings are automatically closed.
-Pretty cool feature!
+This is an immensely cool feature!
 
 > ``Code Scanning alerts`` is free for public repositories but organisations must subscribe to ``GitHub Advanced Security`` which is a very expensive add-on.
 > If you don't have this option, and you don’t want to subscribe, you can use another security dashboard like Defect Dojo.
