@@ -12,6 +12,10 @@ With the integration of AppRouter, Next.js undergoes significant internal change
 Underneath, AppRouter defaults to employing SSR (Server-Side Rendering) and leverages React Server Components (RSC).
 However, this transition brings about consequential impacts on CSP (Content Security Policy).
 
+> This article is written down as an ADR (Architectural Decision Record) because, from my point of view, this is an important security decision.
+> This includes the context of how the decision was made and the consequences of adopting the decision.
+> So, if you find it useful, you can share this ADR with your team members, and perhaps it will prove to be an effective strategy.
+
 ## Issue
 
 All Server Components are loaded using an inline script as depicted below:
@@ -87,21 +91,20 @@ And also in the HTML document:
 
 ## Decission
 
-According to [MDN Web Docs](https://developer.mozilla.org/en-US/), nonces should generally be avoided in a CSP.
-However, Next.js doesn't currently provide any secure alternatives, and nonces are the only solution to maintain a strict CSP.
-Therefore, the Content Security Policy must use a nonce in ``script-src`` directive.
-
+Among the considered options, the only safe solution is to use a CSP with nonce in the ``script-src`` directive.
+While nonces should generally be avoided in a CSP, Next.js doesn't currently provide any secure alternatives, and nonces are the only solution to maintain a strict CSP.
 
 ## Consequence
 
-A Next.js App should be able to generate a random nonce for each request.
+In order to generate a random nonce for each request, a static storage solution like Bucket S3 can no longer be used to host a Next.js application.
+Thus, an application runtime is now required, potentially increasing hosting costs.
+Additionally, pages including a random nonce cannot be cached through a CDN (Content Delivery Network).
 
-It's essential to note that this solution can significantly increase hosting costs and disable caching (CDN).
-Additionally, a static storage solution like Bucket S3 can no longer be used to host a Next.js application.
 
+## Links
 
-## Link
-
-- https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy
-- https://github.com/vercel/next.js/discussions/42170
-- https://giuseppegurgone.com/react-server-component-explained
+- [Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) from [OWASP Cheat Sheet Serier]((https://cheatsheetseries.owasp.org)
+- [Nonce attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) from [MDN](https://developer.mozilla.org)
+- [Configuring Content Security Policy](https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy) from [nextjs.org](https://nextjs.org/)
+- [NEXTJS 13: self.__next_f.push](https://github.com/vercel/next.js/discussions/42170)
+- [React Server Components, Explained](https://giuseppegurgone.com/react-server-component-explained)
