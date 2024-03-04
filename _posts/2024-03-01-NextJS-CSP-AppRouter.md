@@ -104,6 +104,7 @@ Additionally, pages including a random nonce cannot be cached through a CDN (Con
 ## Links
 
 - [Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) from [OWASP Cheat Sheet Series]((https://cheatsheetseries.owasp.org)
+- [The CSP unsafe-inline Source List Keyword](https://content-security-policy.com/unsafe-inline/)
 - [Nonce attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce) from [MDN](https://developer.mozilla.org)
 - [Configuring Content Security Policy](https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy) from [nextjs.org](https://nextjs.org/)
 - [NEXTJS 13: self.__next_f.push](https://github.com/vercel/next.js/discussions/42170)
