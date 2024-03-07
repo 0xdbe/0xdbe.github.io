@@ -8,8 +8,6 @@ tags: Security, AppSec, Next.js
 canonical_url: https://0xdbe.github.io/NextJS-Crafting-CSP/
 ---
 
-# Next.js: Crafting a Strict CSP
-
 Next.js lacks many built-in security measures.
 In fact, it doesn't offer predefined configurations for your Content Security Policy (CSP).
 Consequently, setting up CSP becomes your responsibility.
