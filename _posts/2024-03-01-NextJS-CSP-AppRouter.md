@@ -89,7 +89,7 @@ And also in the HTML document:
 ```
 
 
-## Decission
+## Decision
 
 Among the considered options, the only safe solution is to use a CSP with nonce in the ``script-src`` directive.
 While nonces should generally be avoided in a CSP, Next.js doesn't currently provide any secure alternatives, and nonces are the only solution to maintain a strict CSP.
