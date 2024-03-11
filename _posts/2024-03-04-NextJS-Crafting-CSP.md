@@ -17,8 +17,8 @@ Let's explore how we can implement a CSP.
 
 To ensure a Content Security Policy that aligns with the current standards, we need to meet the following requirements:
 
-- must include a **nonce** because Next.js often utilizes inline scripts.
-- must be delivered through an HTTP Header. Avoid embedding a CSP in a ``meta`` tag with ``http-equiv`` as many unsuported features, such as violation reports and frame-ancestors directive.
+- must include a **nonce** because Next.js often utilizes inline scripts, such as those for [AppRouter](https://0xdbe.github.io/NextJS-CSP-AppRouter/).
+- must be delivered through an HTTP Header. Avoid embedding a CSP in a ``meta`` tag with ``http-equiv`` as it lacks support for crucial features, such as violation reports and frame-ancestors directive.
 
 ## Middleware
 
