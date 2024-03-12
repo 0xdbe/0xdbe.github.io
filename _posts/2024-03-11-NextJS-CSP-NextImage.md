@@ -37,7 +37,7 @@ This component generates the following HTML code:
 >
 ```
 
-As observed, the outcome contains an unsafe inline style uses to conceal the ``alt`` text.
+As observed, the outcome contains an unsafe inline style used to conceal the ``alt`` text.
 
 There are another properties translated into inline style by ``Next/Image``.
 For example, ``fill`` property is translated by:
