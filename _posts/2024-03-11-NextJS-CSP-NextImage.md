@@ -37,11 +37,10 @@ This component generates the following HTML code:
 >
 ```
 
-As observed, the outcome contains an unsafe inline style.
-In this scenario, ``Next/Image`` adds an inline style to conceal the ``alt`` text.
+As observed, the outcome contains an unsafe inline style uses to conceal the ``alt`` text.
 
-``Next/Image`` provides many other properties to configure an image.
-Some of them are also translated into inline style, such as ``fill`` property:
+There are another properties translated into inline style by ``Next/Image``.
+For example, ``fill`` property is translated by:
 
 ```html
 <img
