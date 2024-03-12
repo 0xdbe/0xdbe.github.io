@@ -116,7 +116,7 @@ The basic HTML ``<img>`` tag can be used to embed an image in react component.
 
 ## Decision
 
-Pending a resolution for issues [61388](https://github.com/vercel/next.js/issues/61388) and [45184](https://github.com/vercel/next.js/issues/45184)), it's advisable to refrain from using ``Next/Image``.
+Pending a resolution for issues [61388](https://github.com/vercel/next.js/issues/61388) and [45184](https://github.com/vercel/next.js/issues/45184), it's advisable to refrain from using ``Next/Image``.
 Employing the ``<img>`` HTML tag helps maintain a strict CSP (Content Security Policy).
 
 > This decision is relevant to a new application.
