@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GitHub: signing your commit in a workflow"
+title: "GitHub: signing commit in a workflow"
 date: 20240404
 published: true
 categories: [GitHub]
