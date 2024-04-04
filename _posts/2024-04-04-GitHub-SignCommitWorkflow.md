@@ -50,9 +50,9 @@ mutation (
 
 The following input fields must be set when you call this mutation:
 
-- ``$githubRepository``
+- ``githubRepository``
 - ``branchName``
-- ``$expectedHeadOid``
+- ``expectedHeadOid``
 - ``commitMessage``
 - ``files``
 
